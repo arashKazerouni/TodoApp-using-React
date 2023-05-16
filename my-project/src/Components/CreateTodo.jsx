@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
-const CreateTodo = () => {
+const CreateTodo = ({ onSubmit }) => {
+  const [todoValue, setTodoValue] = useState("");
   const addTodo = (e) => {
     e.preventDefault();
-
+    if (todoValue !== "") onSubmit(todoValue);
+    setTodoValue("");
   };
   return (
     <form action="" className="card flex mb-2" onSubmit={addTodo}>
@@ -14,6 +16,8 @@ const CreateTodo = () => {
         placeholder="New Todo.."
         id="add-todo"
         autoFocus
+        value={todoValue}
+        onChange={(e) => setTodoValue(e.target.value)}
       />
       <button
         className="text-slate-500 ml-auto font-bold hover:cursor-pointer"
