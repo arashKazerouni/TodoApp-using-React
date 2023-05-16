@@ -2,13 +2,13 @@ import React, { useState } from "react";
 
 const CreateTodo = ({ onSubmit }) => {
   const [todoValue, setTodoValue] = useState("");
-  const addTodo = (e) => {
+  const addTodoHandler = (e) => {
     e.preventDefault();
     if (todoValue !== "") onSubmit(todoValue);
     setTodoValue("");
   };
   return (
-    <form action="" className="card flex mb-3" onSubmit={addTodo}>
+    <form action="" className="card flex mb-3" onSubmit={addTodoHandler}>
       <label htmlFor="add-todo"></label>
       <input
         className="input"

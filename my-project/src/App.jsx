@@ -5,6 +5,7 @@ import TodoList from "./Components/TodoList";
 function App() {
   // States
   const [todoList, setTodoList] = useState([]);
+  // Functions 
   // Function to Getting Todos From CreateTodo
   const addNewTodo = (todo) => {
     const updatedTodoList = [
@@ -16,6 +17,7 @@ function App() {
     ];
     setTodoList(updatedTodoList);
   };
+  
   return (
     <div className="mx-4 mt-2 flex flex-col gap-2">
       <CreateTodo onSubmit={addNewTodo} />
