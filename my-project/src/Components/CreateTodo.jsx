@@ -8,7 +8,7 @@ const CreateTodo = ({ onSubmit }) => {
     setTodoValue("");
   };
   return (
-    <form action="" className="card flex mb-2" onSubmit={addTodo}>
+    <form action="" className="card flex mb-3" onSubmit={addTodo}>
       <label htmlFor="add-todo"></label>
       <input
         className="input"
