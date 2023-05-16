@@ -17,14 +17,13 @@ const TodoItem = ({ item, onDelete, onComplete, onSubmitEdit }) => {
   };
   const editHandler = () => {
     setIsEdit(!isEdit);
-    onSubmitEdit(item.id, item.todo);
   };
   const checkComplete = isComplete
     ? "line-through brightness-150 font-bold"
     : "";
   let content = <p className={`${checkComplete}}`}>{item.todo}</p>;
   if (isEdit) {
-    content = <EditTodo todoValue={item.todo} />;
+    content = <EditTodo item={item} onSubmitEdit={onSubmitEdit} editHandler={editHandler}/>;
   }
   return (
     <li className="card flex hover:brightness-110 transition-all duration-200">

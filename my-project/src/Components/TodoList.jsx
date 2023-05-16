@@ -1,7 +1,7 @@
 import React from "react";
 import TodoItem from "./TodoItem";
 
-const TodoList = ({ list, onDelete, onComplete }) => {
+const TodoList = ({ list, onDelete, onComplete, onEdit}) => {
   const mappedTodoList = list.map((item) => {
     return (
       <TodoItem
@@ -9,6 +9,7 @@ const TodoList = ({ list, onDelete, onComplete }) => {
         key={item.id}
         onDelete={onDelete}
         onComplete={onComplete}
+        onSubmitEdit= {onEdit}
       />
     );
   });

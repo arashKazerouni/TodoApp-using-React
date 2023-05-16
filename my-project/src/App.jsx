@@ -34,6 +34,14 @@ function App() {
     });
     setTodoList(updatedTodoList);
   };
+  // Edit Todos By ID
+  const editTodoById = (id, title) => {
+    const updatedTodoList = todoList.map((item) => {
+      if (item.id === id) item.todo = title;
+      return item;
+    });
+    setTodoList(updatedTodoList);
+  };
   return (
     <div className="mx-4 mt-2 flex flex-col gap-2">
       <CreateTodo onSubmit={addNewTodo} />
@@ -41,6 +49,7 @@ function App() {
         list={todoList}
         onDelete={deleteTodoById}
         onComplete={completeTodosById}
+        onEdit={editTodoById}
       />
     </div>
   );
