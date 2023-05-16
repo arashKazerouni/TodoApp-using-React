@@ -1,23 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { TiTick } from "react-icons/ti";
-const TodoItem = ({ item, onDelete, onComplete }) => {
+import EditTodo from "./EditTodo";
+const TodoItem = ({ item, onDelete, onComplete, onSubmitEdit }) => {
+  // State
+  const [isEdit, setIsEdit] = useState(false);
+  const [isComplete, setIsComplete] = useState(false);
+
+  // Functions and Handlers
   const deleteHandler = () => {
     onDelete(item.id);
   };
   const completeHandler = () => {
+    setIsComplete(!isComplete);
     onComplete(item.id);
   };
-  const isComplete = item.state ? "line-through brightness-150 font-bold" : "";
+  const editHandler = () => {
+    setIsEdit(!isEdit);
+    onSubmitEdit(item.id, item.todo);
+  };
+  const checkComplete = isComplete
+    ? "line-through brightness-150 font-bold"
+    : "";
+  let content = <p className={`${checkComplete}}`}>{item.todo}</p>;
+  if (isEdit) {
+    content = <EditTodo todoValue={item.todo} />;
+  }
   return (
-    <li className="card flex hover:cursor-pointer hover:brightness-110 transition-all duration-200">
-      <p className={`${isComplete}}`}>{item.todo}</p>
+    <li className="card flex hover:brightness-110 transition-all duration-200">
+      {content}
       <div className="buttons ml-auto flex gap-2 items-center">
-        <button className="btn">Edit</button>
+        <button onClick={editHandler} className="btn">
+          Edit
+        </button>
         <button onClick={deleteHandler} className="btn">
           -
         </button>
-        <TiTick onClick={completeHandler} />
+        <TiTick onClick={completeHandler} className="hover:cursor-pointer" />
       </div>
     </li>
   );
