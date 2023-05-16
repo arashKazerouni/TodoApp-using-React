@@ -11,6 +11,7 @@ function App() {
     const updatedTodoList = [
       ...todoList,
       {
+        state: false,
         id: Math.trunc(Math.random() * 9999),
         todo,
       },
@@ -25,10 +26,22 @@ function App() {
     });
     setTodoList(updatedTodoList);
   };
+  // Complete Todos By ID
+  const completeTodosById = (id) => {
+    const updatedTodoList = todoList.map((item) => {
+      if (item.id === id) item.state = !item.state;
+      return item;
+    });
+    setTodoList(updatedTodoList);
+  };
   return (
     <div className="mx-4 mt-2 flex flex-col gap-2">
       <CreateTodo onSubmit={addNewTodo} />
-      <TodoList list={todoList} onDelete={deleteTodoById} />
+      <TodoList
+        list={todoList}
+        onDelete={deleteTodoById}
+        onComplete={completeTodosById}
+      />
     </div>
   );
 }
