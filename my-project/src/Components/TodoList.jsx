@@ -9,7 +9,7 @@ const TodoList = ({ list, onDelete, onComplete, onEdit}) => {
         key={item.id}
         onDelete={onDelete}
         onComplete={onComplete}
-        onSubmitEdit= {onEdit}
+        onEdit= {onEdit}
       />
     );
   });

@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import Edit from "./buttons/Edit";
 
-const EditTodo = ({ item, onSubmitEdit, editHandler }) => {
+const EditTodo = ({ item, editSubmitHandler }) => {
   const [newTodo, setNewTodo] = useState(item.todo);
   const handleEdit = (e) => {
     e.preventDefault();
-    onSubmitEdit(item.id, newTodo);
-    editHandler();
+    editSubmitHandler(item.id,newTodo)
   };
   return (
     <form onSubmit={handleEdit} className="flex items-center w-full">
@@ -18,6 +17,7 @@ const EditTodo = ({ item, onSubmitEdit, editHandler }) => {
         value={newTodo}
         onChange={(e) => setNewTodo(e.target.value)}
         autoFocus
+        autoComplete="off"
       />
       <Edit onClick={handleEdit} />
     </form>
