@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  @apply bg-slate-300;
+}
+.card {
+  @apply bg-slate-100 text-slate-950 shadow-md rounded-sm px-2 py-1;
+}
+.input {
+  @apply bg-transparent border-none outline-none;
+}
