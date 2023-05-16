@@ -11,5 +11,5 @@ body {
   @apply bg-transparent border-none outline-none;
 }
 .btn {
-  @apply bg-slate-300 rounded-sm px-3 font-semibold text-sm;
+  @apply bg-slate-300 rounded-sm px-3 font-semibold text-sm hover:brightness-75 transition-all duration-300;
 }
