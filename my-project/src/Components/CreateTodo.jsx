@@ -16,6 +16,7 @@ const CreateTodo = ({ onSubmit }) => {
         placeholder="New Todo.."
         id="add-todo"
         autoFocus
+        autoComplete="off"
         value={todoValue}
         onChange={(e) => setTodoValue(e.target.value)}
       />
