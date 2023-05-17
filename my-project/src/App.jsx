@@ -43,7 +43,7 @@ function App() {
     setTodoList(updatedTodoList);
   };
   return (
-    <div className="mx-4 mt-2 flex flex-col gap-2">
+    <div className="mt-2 flex flex-col gap-2 max-w-md mx-auto">
       <CreateTodo onSubmit={addNewTodo} />
       <TodoList
         list={todoList}
