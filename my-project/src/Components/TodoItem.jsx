@@ -14,7 +14,7 @@ const TodoItem = ({ item, onDelete, onComplete, onEdit }) => {
   };
   const completeHandler = () => {
     setIsComplete(!isComplete);
-    onComplete(item.id);
+    onComplete(item.id, isComplete);
   };
   const editSubmitHandler = (id, newTodo) => {
     setIsEdit(!isEdit);
@@ -25,7 +25,7 @@ const TodoItem = ({ item, onDelete, onComplete, onEdit }) => {
     : "";
   let content = (
     <div className="flex items-center w-full">
-      <p className={`${checkComplete}}`}>{item.todo}</p>
+      <p className={`${checkComplete}}`}>{item.title}</p>
       <Edit onClick={editSubmitHandler} />
     </div>
   );

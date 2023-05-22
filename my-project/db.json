@@ -1,9 +1,14 @@
 {
   "books": [
     {
-      "state": false,
-      "todo": "aw",
-      "id": 1
+      "title": "wefwefwaweawf",
+      "id": 1,
+      "state": false
+    },
+    {
+      "title": "awda",
+      "id": 2,
+      "state": true
     }
   ]
 }

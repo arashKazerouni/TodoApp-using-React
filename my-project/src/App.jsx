@@ -33,17 +33,27 @@ function App() {
     setTodoList(updatedTodoList);
   };
   // Complete Todos By ID
-  const completeTodosById = (id) => {
+  const completeTodosById = async (id, newState) => {
+    const response = await axios.patch(`http://localhost:3000/books/${id}`, {
+      state: newState,
+    });
     const updatedTodoList = todoList.map((item) => {
-      if (item.id === id) item.state = !item.state;
+      if (item.id === id) {
+        return { ...item, ...response.data};
+      }
       return item;
     });
     setTodoList(updatedTodoList);
   };
   // Edit Todos By ID
-  const editTodoById = (id, title) => {
+  const editTodoById = async (id, newTitle) => {
+    const response = await axios.put(`http://localhost:3000/books/${id}`, {
+      title: newTitle,
+    });
     const updatedTodoList = todoList.map((item) => {
-      if (item.id === id) item.todo = title;
+      if (item.id === id) {
+        return { ...item, ...response.data };
+      }
       return item;
     });
     setTodoList(updatedTodoList);
