@@ -24,7 +24,8 @@ function App() {
     setTodoList(updatedTodoList);
   };
   // Deleting Todos By ID
-  const deleteTodoById = (id) => {
+  const deleteTodoById = async (id) => {
+    await axios.delete(`http://localhost:3000/books/${id}`);
     const updatedTodoList = todoList.filter((item) => {
       if (item.id === id) return;
       return item;
