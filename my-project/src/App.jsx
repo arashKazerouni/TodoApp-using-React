@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CreateTodo from "./Components/CreateTodo";
 import TodoList from "./Components/TodoList";
 import axios from "axios";
@@ -6,6 +6,14 @@ function App() {
   // States
   const [todoList, setTodoList] = useState([]);
   // Functions
+  // Fetching data From API
+  const fetchTodos = async () => {
+    const response = await axios.get("http://localhost:3000/books");
+    setTodoList(response.data);
+  };
+  useEffect(() => {
+    fetchTodos();
+  }, []);
   //Getting Todos From CreateTodo
   const addNewTodo = async (todo) => {
     const response = await axios.post("http://localhost:3000/books", {
