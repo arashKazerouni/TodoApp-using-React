@@ -1,21 +1,18 @@
 import { useState } from "react";
 import CreateTodo from "./Components/CreateTodo";
 import TodoList from "./Components/TodoList";
-
+import axios from "axios";
 function App() {
   // States
   const [todoList, setTodoList] = useState([]);
   // Functions
   //Getting Todos From CreateTodo
-  const addNewTodo = (todo) => {
-    const updatedTodoList = [
-      ...todoList,
-      {
-        state: false,
-        id: Math.trunc(Math.random() * 9999),
-        todo,
-      },
-    ];
+  const addNewTodo = async (todo) => {
+    const response = await axios.post("http://localhost:3000/books", {
+      state: false,
+      todo,
+    });
+    const updatedTodoList = [...todoList, response.data];
     setTodoList(updatedTodoList);
   };
   // Deleting Todos By ID
