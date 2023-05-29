@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import TodosContext from "../context/todos";
 
-const CreateTodo = ({ onSubmit }) => {
+const CreateTodo = () => {
+  const { addNewTodo } = useContext(TodosContext);
   const [todoValue, setTodoValue] = useState("");
   const addTodoHandler = (e) => {
     e.preventDefault();
-    if (todoValue !== "") onSubmit(todoValue);
+    if (todoValue !== "") addNewTodo(todoValue);
     setTodoValue("");
   };
   return (
