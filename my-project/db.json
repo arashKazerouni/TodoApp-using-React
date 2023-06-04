@@ -1,18 +1,3 @@
 {
-  "books": [
-    {
-      "state": false,
-      "todo": "wqwdqwd",
-      "id": 3
-    },
-    {
-      "state": false,
-      "todo": "wqd",
-      "id": 4
-    },
-    {
-      "todo": "arash",
-      "id": 5
-    }
-  ]
+  "books": []
 }

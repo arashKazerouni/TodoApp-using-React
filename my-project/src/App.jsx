@@ -6,7 +6,7 @@ function App() {
   const { fetchTodos, todoList } = useContext(TodosContext);
   useEffect(() => {
     fetchTodos();
-  }, []);
+  }, [fetchTodos]);
   return (
     <div className="mt-2 flex flex-col gap-2 max-w-md mx-auto">
       <CreateTodo />

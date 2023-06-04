@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useCallback } from "react";
 import axios from "axios";
 const TodosContext = createContext();
 const Provider = ({ children }) => {
@@ -6,10 +6,10 @@ const Provider = ({ children }) => {
   const [todoList, setTodoList] = useState([]);
   // Functions
   // Fetching data From API
-  const fetchTodos = async () => {
+  const fetchTodos = useCallback(async () => {
     const response = await axios.get("http://localhost:3000/books");
     setTodoList(response.data);
-  };
+  }, []);
 
   //Getting Todos From CreateTodo
   const addNewTodo = async (todo) => {
