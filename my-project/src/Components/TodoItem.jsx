@@ -7,9 +7,10 @@ import TodosContext from "../context/todos";
 const TodoItem = ({ item }) => {
   // State
   const [isEdit, setIsEdit] = useState(false);
-  const [isComplete, setIsComplete] = useState(false);
-  const { deleteTodoById, completeTodosById, editTodoById } =
-    useContext(TodosContext);
+  const [isComplete, setIsComplete] = useState(
+    JSON.parse(localStorage.getItem(item.id)) || false
+  );
+  const { deleteTodoById, completeTodosById } = useContext(TodosContext);
 
   // Functions and Handlers
   const deleteHandler = () => {
@@ -17,11 +18,11 @@ const TodoItem = ({ item }) => {
   };
   const completeHandler = () => {
     setIsComplete(!isComplete);
+    localStorage.setItem(item.id, !isComplete);
     completeTodosById(item.id, isComplete);
   };
   const editSubmitHandler = () => {
     setIsEdit(!isEdit);
-    
   };
   const checkComplete = isComplete
     ? "line-through brightness-150 font-bold"

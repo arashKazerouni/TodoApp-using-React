@@ -1,3 +1,9 @@
 {
-  "books": []
+  "books": [
+    {
+      "todo": "dasawdasdf",
+      "id": 1,
+      "state": false
+    }
+  ]
 }
